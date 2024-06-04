@@ -1,0 +1,17 @@
+{
+    "target": "",
+    "datetime": "",
+    "vulnerabilities":
+    [
+        {
+            "component":"",
+            "version":"",
+            "critcity":""
+        },
+        {
+            "component":"",
+            "version":"",
+            "critcity":""
+        }
+    ]
+}
