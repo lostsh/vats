@@ -7,10 +7,10 @@ assignees: lostsh
 
 ---
 
-# Describe the issue
+## Describe the issue
 A clear and concise description of what the vulnerability consist in
 
-# To Reproduce _(if exploit)_
+## To Reproduce _(if exploit)_
 Steps to reproduce the exploit _(if there is one)_!:
 
     Go to '...'
@@ -18,5 +18,5 @@ Steps to reproduce the exploit _(if there is one)_!:
     Scroll down to '....'
     See error
 
-# Expected behavior
+## Expected behavior
 A clear and concise description of what you expected to happen without the vuln.
