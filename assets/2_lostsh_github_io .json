@@ -1,0 +1,37 @@
+{
+    "target": "lostsh.github.io",
+    "datetime": "2024-06-11-07-50-20",
+    "vulnerabilities":
+    [
+        {
+            "component":"ports",
+            "version":"",
+            "critcity":"HIGH",
+            "comments":"Open ports represent attack surface"
+        },
+        {
+            "component":"Cryptography",
+            "version":"",
+            "critcity":"MEDIUM",
+            "comments": "cryptography problem"
+        },
+        {
+            "component":"Info Disclosure",
+            "version":"",
+            "critcity":"MEDIUM",
+            "comments": "disclosed components versions"
+        },
+        {
+            "component":"SQLI",
+            "version":"",
+            "critcity":"HIGH",
+            "comments": "sql injection"
+        },
+        {
+            "component":"JQuerry",
+            "version":"1.42",
+            "critcity":"MEDIUM",
+            "comments": "vulnerable JQuerry version"
+        }
+    ]
+}
