@@ -37,3 +37,16 @@ func ReadFile(filePath string) string{
 	f.Close()
 	return content
 }
+
+func WriteFile(filePath string, content string){
+	var byteContent = []byte(content)
+	f, err := os.Create(filePath)
+	if err != nil{
+		panic(err)
+	}
+	_, err = f.Write(byteContent)
+	if err != nil{
+		panic(err)
+	}
+	f.Close()
+}
