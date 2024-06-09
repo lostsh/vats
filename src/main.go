@@ -33,10 +33,4 @@ func main(){
     fmt.Printf(c)
 
     fmt.Println("==>Nest test :")
-    mm := Vuln{Component: "Golang", Version: "0.23", Criticity: 1, Comments: "c"}
-    str := mm.Serialize()
-    fmt.Printf("\nVuln serialized: %s\n", str)
-    var vv Vuln
-    vv.Unserialize(str)
-    fmt.Printf("\nThe vuln is : %s\n", vv)
 }
