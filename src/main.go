@@ -31,5 +31,12 @@ func main(){
     fmt.Println("Test on json reading files :")
     c := ReadFile("assets/scan_report.json")
     fmt.Printf(c)
-    fmt.Println("Heyyy")
+
+    fmt.Println("==>Nest test :")
+    mm := Vuln{Component: "Golang", Version: "0.23", Criticity: 1, Comments: "c"}
+    str := mm.Serialize()
+    fmt.Printf("\nVuln serialized: %s\n", str)
+    var vv Vuln
+    vv.Unserialize(str)
+    fmt.Printf("\nThe vuln is : %s\n", vv)
 }
