@@ -34,7 +34,7 @@ func main(){
     json.Unmarshal([]byte(c), &vv)
     fmt.Println(vv)
     
-    vv = append(vv, Vuln{Component: "Angular", Version: "10.2", Criticity: 3.4, Comments: "fraise"})
+    vv = append(vv, Vuln{Component: "Leemon", Version: "10.2", Criticity: 2.4, Comments: "Ours"})
     fmt.Println("addition to array")
     fmt.Println(vv)
 
