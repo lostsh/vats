@@ -28,23 +28,8 @@ func main(){
     json.Unmarshal(byteJson, &arryunsze)
     fmt.Println(arryunsze)
 
-    serialize_test()
-
-    fmt.Println("New Tests :")
-
-    //m := make(map[int]Vuln)
-    m := map[int]Vuln{
-        1:Vuln{Component: "JQuery", Version: "0.23", Criticity: 8, Comments: "c"},
-        2:Vuln{Component: "React", Version: "0.2", Criticity: 4.3, Comments: "c"},
-        3:Vuln{Component: "Apache", Version: "0.2", Criticity: 9, Comments: "c"},
-        4:Vuln{Component: "Fraise", Version: "0.2", Criticity: 1.1, Comments: "c"},
-    }
-
-    fmt.Println(m)
-
-    jsonmap, _ := json.Marshal(m)
-    fmt.Println(string(jsonmap))
-    unjsonmap := make(map[int]Vuln)
-    json.Unmarshal(jsonmap, &unjsonmap)
-    fmt.Println(unjsonmap)
+    fmt.Println("Test on json reading files :")
+    c := ReadFile("assets/scan_report.json")
+    fmt.Printf(c)
+    fmt.Println("Heyyy")
 }

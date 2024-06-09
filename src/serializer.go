@@ -1,11 +1,32 @@
 package main
 
-import (
-)
+import "os"
 
+func ReadLine(f *os.File) (string, error){
+	var line string
+	char := make([]byte, 1)
+	size, err := f.Read(char)
+	for size > 0 && err == nil && string(char) != "\n" {
+		line += string(char)
+		size, err = f.Read(char)
+	}
+	// EOF line case
+	if err != nil && size == 0 {
+		return line, err
+	}
+	return line, nil
+}
 
-func serialize_test(){
+func ReadFile(filePath string) string{
+	var content string
+	f, err := os.Open(filePath)
+	except(err)
 
-	readFile("/tmp/fraise.txt")
-
+	for {
+		l, e := ReadLine(f)
+		content += (l+"\n")
+		if e != nil { break }
+	}
+	f.Close()
+	return content
 }

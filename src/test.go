@@ -95,15 +95,17 @@ func test(){
 	f.Close()
 }
 
-func readFile(filePath string){
-
+func readFile(filePath string) []string{
+	var content []string
 	f, err := os.Open(filePath)
 	except(err)
 
 	l, e := readLine(f)
 	for e == nil{
-		fmt.Println(l)
+		//fmt.Println(l)
+		content = append(content, l)
 		l, e = readLine(f)
 	}
 	f.Close()
+	return content
 }
