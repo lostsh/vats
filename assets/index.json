@@ -1,28 +1,28 @@
 {
-    "index":
+    "assets":
     [
         {
             "target":"lostsh.github.io",
             "scans":
             [
-                {"datetime": "2024-06-10-09-45-20", "file": "1_lostsh_github_io.json"},
-                {"datetime": "2024-06-11-07-50-20", "file": "2_lostsh_github_io.json"},
-                {"datetime": "2024-06-12-03-02-20", "file": "3_lostsh_github_io.json"}
+                {"datetime": "2004-01-10T14:49:15.271705894+02:00", "file": "1_lostsh_github_io.json"},
+                {"datetime": "2004-01-10T14:49:15.271705894+02:00", "file": "2_lostsh_github_io.json"},
+                {"datetime": "2004-01-10T14:49:15.271705894+02:00", "file": "3_lostsh_github_io.json"}
             ]
         },
         {
             "target":"domain.tld",
             "scans":
             [
-                {"datetime": "2024-04-13-10-45-20", "file": "1_domain_tld.json"},
-                {"datetime": "2024-05-19-10-45-20", "file": "2_domain_tld.json"}
+                {"datetime": "2004-02-10T14:49:15.271705894+02:00", "file": "1_domain_tld.json"},
+                {"datetime": "2004-02-10T14:49:15.271705894+02:00", "file": "2_domain_tld.json"}
             ]
         },
         {
             "target":"google.com",
             "scans":
             [
-                {"datetime": "2024-06-01-10-45-20", "file": "1_google_com.json"}
+                {"datetime": "2004-03-10T14:49:15.271705894+02:00", "file": "1_google_com.json"}
             ]
         }
     ]
