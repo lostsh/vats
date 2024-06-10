@@ -3,6 +3,7 @@ package main
 import (
 	"time"
 	"encoding/json"
+	"cmp"
 )
 
 type Scan_Unit struct{
@@ -30,6 +31,16 @@ func (i Index) String() string{
 		out += "\n"
 	}
 	return out
+}
+
+func CompareAssets(a, b Scan) int{
+	if len(a.Scans) < 1 || len(b.Scans) < 1{
+		return 0
+	}
+    return cmp.Compare(a.Scans[0].Datetime, b.Scans[0].Datetime)
+}
+func CompareScanUnit(a, b Scan_Unit) int{
+	return cmp.Compare(a.Datetime, b.Datetime)
 }
 
 func (i *Index) Serialize() string{
