@@ -40,8 +40,3 @@ func (i Index) Serialize() string{
 func (i *Index) Unserialize(jsonStr string){
 	json.Unmarshal([]byte(jsonStr), i)
 }
-func Unserialize(jsonStr string) Index{
-	var i Index
-	json.Unmarshal([]byte(jsonStr), &i)
-	return i
-}

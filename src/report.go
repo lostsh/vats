@@ -1,23 +1,32 @@
 package main 
 
 import (
-	"time"
+	//"time"
 	"encoding/json"
 )
 
 type Report struct{
-	Target string
-	Datetime time.Time
-	Vulnerabilities []Vuln
+	Target string			`json:"target"`
+	Datetime string			`json:"datetime"`
+	Vulnerabilities []Vuln	`json:"vulnerabilities"`
+}
+
+func (r Report) String() string{
+	var str string
+	//dt, _ := time.Parse(time.RFC3339, r.Datetime)
+	//str += (r.Target+" : "+dt.String()+"\n\t")
+	str += (r.Target+" : "+r.Datetime+"\n\t")
+	for _, v := range r.Vulnerabilities{
+		str+= (" "+v.String())
+	}
+	return (str+"\n")
 }
 
 func (r Report) Serialize() string{
 	byteJson, _ := json.Marshal(r)
 	return string(byteJson)
 }
-/*
-func Unserialize(jsonStr string) Report{
-	var report Report
-	json.Unmarshal([]byte(jsonStr), &report)
-	return report
-}*/
+
+func (r *Report) Unserialize(jsonStr string){
+	json.Unmarshal([]byte(jsonStr), r)
+}

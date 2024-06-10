@@ -1,0 +1,1 @@
+{"target":"fraise","datetime":"2002-13-13T14:49:15.271705894+02:00","vulnerabilities":[{"component":"JQuery","criticity":8.1,"version":"0.23","comments":"c"},{"component":"React","criticity":4.3,"version":"0.2","comments":"c"},{"component":"Apache","criticity":9.8,"version":"0.2","comments":"c"},{"component":"Fraise","criticity":1.1,"version":"0.2","comments":"c"}]}
