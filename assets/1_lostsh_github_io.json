@@ -5,32 +5,32 @@
     [
         {
             "component":"ports",
+            "criticity":2,
             "version":"",
-            "critcity":"HIGH",
             "comments":"Open ports represent attack surface"
         },
         {
             "component":"Cryptography",
+            "criticity":4,
             "version":"",
-            "critcity":"MEDIUM",
             "comments": "cryptography problem"
         },
         {
             "component":"Info Disclosure",
+            "criticity":6,
             "version":"",
-            "critcity":"MEDIUM",
             "comments": "disclosed components versions"
         },
         {
             "component":"SQLI",
+            "criticity":8,
             "version":"",
-            "critcity":"HIGH",
             "comments": "sql injection"
         },
         {
             "component":"JQuerry",
+            "criticity":10,
             "version":"1.42",
-            "critcity":"MEDIUM",
             "comments": "vulnerable JQuerry version"
         }
     ]

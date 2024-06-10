@@ -69,7 +69,7 @@ func main(){
     fmt.Println("File written")
     
     fmt.Println("Unserialize: ")
-    filecontent := ReadFile("assets/11_lostsh_github_io.json")
+    filecontent := ReadFile("assets/1_lostsh_github_io.json")
     var ralost Report
     (&ralost).Unserialize(filecontent)
     fmt.Println(ralost)
