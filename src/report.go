@@ -22,8 +22,8 @@ func (r Report) String() string{
 	return (str+"\n")
 }
 
-func (r Report) Serialize() string{
-	byteJson, _ := json.Marshal(r)
+func (r *Report) Serialize() string{
+	byteJson, _ := json.Marshal(*r)
 	return string(byteJson)
 }
 

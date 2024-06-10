@@ -74,10 +74,24 @@ func main(){
     var ralost Report
     (&ralost).Unserialize(filecontent)
     fmt.Println(ralost)*/
+    /*
     var rep Report
     Unserializer("assets/1_lostsh_github_io.json", &rep)
     fmt.Println(rep)
     var inn Index
     Unserializer("assets/index.json", &inn)
-    fmt.Println(inn)
+    fmt.Println(inn)*/
+    
+    var repp = Report{
+        Target: "fraise",
+        Datetime: "2002-13-13T14:49:15.271705894+02:00",
+        Vulnerabilities: []Vuln{
+            Vuln{Component: "JQuery", Version: "0.23", Criticity: 8.1, Comments: "c"},
+            Vuln{Component: "React", Version: "0.2", Criticity: 4.3, Comments: "c"},
+            Vuln{Component: "Apache", Version: "0.2", Criticity: 9.8, Comments: "c"},
+            Vuln{Component: "Fraise", Version: "0.2", Criticity: 1.1, Comments: "c"},
+        },
+    }
+    Serializer("assets/111_fraise.json", &repp)
+    fmt.Println("File written")
 }
