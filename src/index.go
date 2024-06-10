@@ -32,8 +32,8 @@ func (i Index) String() string{
 	return out
 }
 
-func (i Index) Serialize() string{
-	byteJson, _ := json.Marshal(i)
+func (i *Index) Serialize() string{
+	byteJson, _ := json.Marshal(*i)
 	return string(byteJson)
 }
 
