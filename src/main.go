@@ -54,6 +54,7 @@ func main(){
     fmt.Println(i)*/
 
     fmt.Println("Now parsing the report itself")
+    /*
     var repp = Report{
         Target: "fraise",
         Datetime: "2002-13-13T14:49:15.271705894+02:00",
@@ -72,5 +73,11 @@ func main(){
     filecontent := ReadFile("assets/1_lostsh_github_io.json")
     var ralost Report
     (&ralost).Unserialize(filecontent)
-    fmt.Println(ralost)
+    fmt.Println(ralost)*/
+    var rep Report
+    Unserializer("assets/1_lostsh_github_io.json", &rep)
+    fmt.Println(rep)
+    var inn Index
+    Unserializer("assets/index.json", &inn)
+    fmt.Println(inn)
 }
