@@ -1,9 +1,6 @@
 package main
 
-import (
-	"os"
-	//"fmt"
-)
+import "os"
 
 func ReadLine(f *os.File) (string, error){
 	var line string
@@ -24,7 +21,6 @@ func ReadFile(filePath string) string{
 	var content string
 	f, err := os.Open(filePath)
 	if err != nil{
-		//fmt.Println(err)
 		panic(err)
 		return ""
 	}
