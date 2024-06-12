@@ -1,29 +1,50 @@
 {
-    "assets":
-    [
+    "assets": [
         {
-            "target":"lostsh.github.io",
-            "scans":
-            [
-                {"datetime": "2004-01-10T14:49:15.271705894+02:00", "file": "1_lostsh_github_io.json"},
-                {"datetime": "2004-01-10T14:49:15.271705894+02:00", "file": "2_lostsh_github_io.json"},
-                {"datetime": "2004-01-10T14:49:15.271705894+02:00", "file": "3_lostsh_github_io.json"}
+            "target": "lostsh.github.io",
+            "scans": [
+                {
+                    "datetime": "2004-01-10T14:49:15.271705894+02:00",
+                    "file": "1_lostsh_github_io.json"
+                },
+                {
+                    "datetime": "2004-01-10T13:49:15.271705894+02:00",
+                    "file": "2_lostsh_github_io.json"
+                },
+                {
+                    "datetime": "2004-01-10T14:49:15.271705894+02:00",
+                    "file": "3_lostsh_github_io.json"
+                }
             ]
         },
         {
-            "target":"domain.tld",
-            "scans":
-            [
-                {"datetime": "2004-02-10T14:49:15.271705894+02:00", "file": "1_domain_tld.json"},
-                {"datetime": "2001-02-10T14:49:15.271705894+02:00", "file": "2_domain_tld.json"}
+            "target": "domain.tld",
+            "scans": [
+                {
+                    "datetime": "2004-02-10T14:49:15.271705894+02:00",
+                    "file": "1_domain_tld.json"
+                },
+                {
+                    "datetime": "2001-02-10T14:49:15.271705894+02:00",
+                    "file": "2_domain_tld.json"
+                }
             ]
         },
         {
-            "target":"google.com",
-            "scans":
-            [
-                {"datetime": "2002-03-10T14:49:15.271705894+02:00", "file": "1_google_com.json"},
-                {"datetime": "2004-03-09T14:49:15.271705894+02:00", "file": "2_google_com.json"}
+            "target": "google.com",
+            "scans": [
+                {
+                    "datetime": "2002-03-10T14:49:15.271705894+02:00",
+                    "file": "1_google_com.json"
+                },
+                {
+                    "datetime": "2002-03-10T14:55:15.271705894+02:00",
+                    "file": "2_google_com.json"
+                },
+                {
+                    "datetime": "2004-03-09T14:49:15.271705894+02:00",
+                    "file": "3_google_com.json"
+                }
             ]
         }
     ]

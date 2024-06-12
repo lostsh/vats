@@ -22,7 +22,18 @@ func main(){
     Serializer("assets/111_index.json", &inn)
     fmt.Println("File written")*/
 
-    var fraise = Init()
+    var fraise Index
+    Unserializer("assets/index.json", &fraise)
     fmt.Println(fraise)
-    //Serializer("assets/sorted_index.json", &fraise)
+
+    fmt.Printf("\n\nImporting report:\n")
+    (&fraise).ImportScanReport("report_example.json", "assets")
+    fmt.Printf("Saving index file:\n")
+    Serializer("assets/index.json", &fraise)
+    fmt.Printf("\n\n")
+
+    fmt.Println("Now sorting those things")
+    
+    SortIndex(&fraise)
+    fmt.Println(fraise)
 }
