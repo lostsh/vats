@@ -6,50 +6,53 @@ import (
 	//"cmp"
 )
 
-type Scan_Unit struct{
-	Datetime string 		`json:"datetime"`
-	FilePath string			`json:"file"`
-}
 type Scan struct{
-	Target string			`json:"target"`
-	Scans []Scan_Unit		`json:"scans"`
+	Datetime string 			`json:"datetime"`
+	FilePath string				`json:"file"`
 }
+
 type Index struct{
-	Assets []Scan			`json:"assets"`
+	Assets map[string][]Scan	`json:"assets"`
 }
 
 func (i *Index) addReport(r Report, filePath string){
-	var scanUnit = Scan_Unit{Datetime: r.Datetime, FilePath: filePath}
+	var scanUnit = Scan{Datetime: r.Datetime, FilePath: filePath}
 	// getting all scan for this target
-	var scanUnits = []Scan_Unit{scanUnit,}
-	// adding curent scan to the existing target
-	// if already exit
-	// if new
-	var scan = Scan{Target: r.Target, Scans: scanUnits}
-	i.Assets = append(i.Assets, scan)
+	var scanUnits []Scan
+	_, exist := i.Assets[r.Target]
+	if exist{
+		// adding curent scan to the existing target
+		scanUnits = append(i.Assets[r.Target], scanUnit)
+	}else{
+		// create new
+		scanUnits = []Scan{scanUnit,}
+	}
+	i.Assets[r.Target] = scanUnits
 }
 
 func (i Index) String() string{
 	var out string
 	out += "Total index entry unknown\n"
-	for _, e := range i.Assets{
-		out += ("::"+e.Target+"\n")
-		for _, u := range e.Scans{
-			dt, _ := time.Parse(time.RFC3339, u.Datetime)
-			out += ("\t- Time: "+dt.String()+"\n")
+	for key, val := range i.Assets{
+		out += ("::"+key+"\n")
+		for _, u := range val{
+			//dt, _ := time.Parse(time.RFC3339, u.Datetime)
+			//out += ("\t- Time: "+dt.String()+"\n")
+			out += ("\t- Time: "+u.Datetime+"\n")
 			out += ("\t- File: ["+u.FilePath+"]\n")
 		}
 		out += "\n"
 	}
 	return out
 }
+/*
 //TODO use time.Time type to compare
-func CompareAssets(a, b Scan) int{
-	if len(a.Scans) < 1 || len(b.Scans) < 1{
+func CompareAssets(a, b <string>[]Scan) int{
+	if len(a) < 1 || len(b) < 1{
 		return 0
 	}
-	da, _ := time.Parse(time.RFC3339, a.Scans[0].Datetime)
-	db, _ := time.Parse(time.RFC3339, b.Scans[0].Datetime)
+	da, _ := time.Parse(time.RFC3339, a[0].Datetime)
+	db, _ := time.Parse(time.RFC3339, b[0].Datetime)
 	if da.Equal(db) {
 		return 0
 	}
@@ -57,12 +60,9 @@ func CompareAssets(a, b Scan) int{
 		return 1
 	}
     return -1
-}
-/*
-func CompareScanUnit(a, b Scan_Unit) int{
-	return cmp.Compare(a.Datetime, b.Datetime)
 }*/
-func CompareScanUnit(a, b Scan_Unit) int{
+
+func CompareScans(a, b Scan) int{
 	da, _ := time.Parse(time.RFC3339, a.Datetime)
 	db, _ := time.Parse(time.RFC3339, b.Datetime)
 	if da.Equal(db) {

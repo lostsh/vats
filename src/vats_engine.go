@@ -1,5 +1,4 @@
 package main
-
 import (
 	"slices"
 	"path/filepath"
@@ -7,14 +6,15 @@ import (
 )
 
 func (index *Index) SortIndex(){
-    //Unserializer(filePath, index)
+	//Unserializer(filePath, index)
 	// sorting all scan files for each target
-	for _, unit := range index.Assets{
-		slices.SortFunc(unit.Scans, CompareScanUnit)
+	for _, val := range index.Assets{
+		slices.SortFunc(val, CompareScans)
 	}
-	// sorting targets by last scan date
-	slices.SortFunc(index.Assets, CompareAssets)
+	//TODO sorting targets by last scan date
+	//slices.SortFunc(index.Assets, CompareAssets)
 }
+
 
 func (r *Report) TargetToFileName() string{
 	regex := regexp.MustCompile("[\\W]")
