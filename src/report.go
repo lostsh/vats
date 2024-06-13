@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 )
 
+// Report contain results of a scan on a Target
 type Report struct{
 	Target string			`json:"target"`
 	Datetime string			`json:"datetime"`

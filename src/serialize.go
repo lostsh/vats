@@ -1,6 +1,7 @@
 package main
 
-
+// serializable is an object that
+// can be json serialized
 type serializable interface{
 	Serialize() string
 	Unserialize(string)

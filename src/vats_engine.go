@@ -1,4 +1,5 @@
 package main
+
 import (
 	"slices"
 	"path/filepath"
@@ -15,7 +16,7 @@ func (index *Index) SortIndex(){
 	//slices.SortFunc(index.Assets, CompareAssets)
 }
 
-
+// get a valid json file name from the report target.
 func (r *Report) TargetToFileName() string{
 	regex := regexp.MustCompile("[\\W]")
 	n := regex.ReplaceAllString(r.Target, "_")
@@ -23,6 +24,8 @@ func (r *Report) TargetToFileName() string{
 	return (n+".json")
 }
 
+// Get a report file and import it into index object.
+// Create report file and save it into storage directory.
 func (index *Index) ImportScanReport(importFilePath string, storageDirectory string){
 	// getting report data
 	var report Report

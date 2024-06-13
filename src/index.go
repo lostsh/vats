@@ -6,11 +6,14 @@ import (
 	//"cmp"
 )
 
+// Scan is an instance of a scan
+// A Scan is directly linked to a Target
 type Scan struct{
 	Datetime string 			`json:"datetime"`
 	FilePath string				`json:"file"`
 }
 
+// Index object contain a map of target > Scan[]
 type Index struct{
 	Assets map[string][]Scan	`json:"assets"`
 }
