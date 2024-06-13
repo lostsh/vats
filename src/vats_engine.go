@@ -6,7 +6,7 @@ import (
 	"regexp"
 )
 
-func SortIndex(index *Index){
+func (index *Index) SortIndex(){
     //Unserializer(filePath, index)
 	// sorting all scan files for each target
 	for _, unit := range index.Assets{
@@ -17,11 +17,10 @@ func SortIndex(index *Index){
 }
 
 func (r *Report) TargetToFileName() string{
-	//TODO : regex that match all points and oor space
-	panic("TODO")
-	regex := regexp.MustCompile(".")
+	regex := regexp.MustCompile("[\\W]")
 	n := regex.ReplaceAllString(r.Target, "_")
-	return n
+	n += ("_"+regex.ReplaceAllString(r.Datetime, ""))
+	return (n+".json")
 }
 
 func (index *Index) ImportScanReport(importFilePath string, storageDirectory string){
@@ -36,5 +35,4 @@ func (index *Index) ImportScanReport(importFilePath string, storageDirectory str
 
 	// adding report to index
 	index.addReport(report, storeFilePath)
-	//copy content to assets directoy with correct name
 }

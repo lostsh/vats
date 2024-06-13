@@ -18,6 +18,8 @@ $(TARGET): $(SRC)
 	$(CC) -o $@ $^
 
 .PHONY: doc clean clean_doc clean_bin
+win: $(SRC)
+    GOOS=windows GOARCH=amd64 go build -C $(SRC_DIR)
 
 doc:
 	@doxygen

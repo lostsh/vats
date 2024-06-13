@@ -27,13 +27,13 @@ func main(){
     fmt.Println(fraise)
 
     fmt.Printf("\n\nImporting report:\n")
-    (&fraise).ImportScanReport("report_example.json", "assets")
+    (&fraise).ImportScanReport("report_example2.json", "assets")
     fmt.Printf("Saving index file:\n")
     Serializer("assets/index.json", &fraise)
     fmt.Printf("\n\n")
 
     fmt.Println("Now sorting those things")
     
-    SortIndex(&fraise)
+    (&fraise).SortIndex()
     fmt.Println(fraise)
 }
