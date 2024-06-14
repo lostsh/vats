@@ -1,0 +1,5 @@
+.table td{
+    border-left-width: 1px;
+    border-left-color: inherit;
+    border-left-style: solid;
+}
