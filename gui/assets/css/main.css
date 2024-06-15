@@ -3,3 +3,10 @@
     border-left-color: inherit;
     border-left-style: solid;
 }
+
+.table-container{
+    width: 99vw;
+    height: 90vh;
+    margin: auto;
+    overflow: scroll;
+}
