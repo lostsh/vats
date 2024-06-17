@@ -10,3 +10,8 @@
     margin: auto;
     overflow: scroll;
 }
+
+::selection{
+    background-color: transparent;
+}
+*{cursor: default;}
