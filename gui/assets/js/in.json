@@ -1,0 +1,28 @@
+{
+    "assets": {
+        "fraise.gr-paris.fr": [
+            {
+                "datetime": "2002-12-13T14:49:15.271705894+02:00",
+                "file": "fraise.json"
+            },
+            {
+                "datetime": "2002-12-13T14:52:15.271705894+02:00",
+                "file": "fraise.json"
+            }
+        ],
+        "google.com": [
+            {
+                "datetime": "2004-03-09T14:49:15.271705894+02:00",
+                "file": "fraise.json"
+            },
+            {
+                "datetime": "2002-03-10T14:55:15.271705894+02:00",
+                "file": "fraise.json"
+            },
+            {
+                "datetime": "2002-03-10T14:49:15.271705894+02:00",
+                "file": "fraise.json"
+            }
+        ]
+    }
+}
