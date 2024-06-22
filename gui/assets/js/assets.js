@@ -7,8 +7,8 @@
     ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
 */
 
-function main() {
-    fetch('assets/js/in.json')
+function main(index_file) {
+    fetch(index_file)
         .then(data => {
             return data.json();
         })
