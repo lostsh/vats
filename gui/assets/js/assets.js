@@ -7,62 +7,104 @@
     ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
 */
 
-/**
- * Read the post index file,
- * for each post create an tile,
- * add the tile to the container
- *//*
 function main() {
     fetch('assets/js/in.json')
         .then(data => {
             return data.json();
         })
         .then(json => {
-            json.assets.forEach(target => {
-                document.getElementById('assetList')
-                    .appendChild(createAssetTile(target));
-            });
-        });
-}
-*/
-function main() {
-    fetch('assets/js/in.json')
-        .then(data => {
-            return data.json();
-        })
-        .then(json => {
-            for(const [key, val] of Object.entries(json.assets)){
-                document.getElementById('assetList')
-                    .appendChild(createAssetTile(key, val));
-                console.log(key);
-                console.log(val);
+            for (const [key, val] of Object.entries(json.assets)) {
+                const tileBuilder = createAssetTile(key, val);
+                tileBuilder.then((tileElement) => {
+                    document.getElementById('assetsList').appendChild(tileElement);
+                })
             }
         });
 }
 
-
 /**
- * Create a Node of <blog-post> type frome inputed args
- * @param {*} attributes attibutes for the webcomponent
+ * Create an asset tile reading from files
+ * @param {*} target target name
+ * @param {*} scans list of scans of the target
  * @returns Node element
  */
-function createAssetTile(target, scans) {
-    console.log("Hi now creating tiles", target, "scans are :", scans);
-    var tile = document.createElement("asset-tile");
-    var attributes = new Array()
-    // now supposed to get statistics on each scan
-    // put data into this array
-    attributes["url"] = target
-    attributes["high"] = "3"
-    attributes["medium"] = "5"
-    attributes["low"] = "8"
-    attributes["info"] = "12"
-    attributes["healthy"] = "7"
-    attributes["total-vulns"] = "23"
-    for (var attribute in attributes) {
-        tile.setAttribute(attribute, attributes[attribute]);
-    };
-    return tile;
+async function createAssetTile(target, scans) {
+    const builder = buildAttributes(target, scans)
+    return builder.then((attributes) => {
+        var tile = document.createElement("asset-tile");
+        for (var attribute in attributes) {
+            tile.setAttribute(attribute, attributes[attribute]);
+        };
+        return tile;
+    });
+}
+
+/**
+ * Read files and compute statistics about assets for tile.
+ * @returns array of attributes to build a asset tile
+ */
+async function buildAttributes(target, scan_units) {
+
+    // gather all stats
+    const scans = new Array();
+    for (var i in scan_units) {
+        console.log("Fetching infos from : ", scan_units[i]);
+        scans[i] = getStats(scan_units[i].file);
+    }
+
+    return Promise.all(scans).then((attrib) => {
+        console.log("Got all the stats damn !")
+        console.log(attrib);
+        //TODO: compute statistics about this
+        return attrib[0];
+
+        var attributes = new Array();
+        attributes["url"] = target;
+        attributes["high"] = "3";
+        attributes["medium"] = "5";
+        attributes["low"] = "8";
+        attributes["info"] = "12";
+        attributes["healthy"] = "7";
+        return attributes;
+    });
+}
+
+async function getStats(file) {
+    return fetch(file)
+        .then(data => {
+            return data.json();
+        })
+        .then(json => {
+            var stats = new Array();
+            stats["url"] = json.target;
+            stats["datetime"] = json.datetime;
+            stats["high"] = 0;
+            stats["medium"] = 0;
+            stats["low"] = 0;
+            stats["info"] = 0;
+            stats["healthy"] = 0;
+            stats["total-vulns"] = json.vulnerabilities.length;
+            for (var vuln of json.vulnerabilities) {
+                console.log(vuln.criticity);
+                if (vuln.criticity <= 2) {
+                    stats["healthy"] += 1
+                } else if (vuln.criticity <= 4) {
+                    stats["info"] += 1
+                } else if (vuln.criticity <= 6) {
+                    stats["low"] += 1
+                } else if (vuln.criticity <= 8) {
+                    stats["medium"] += 1
+                } else if (vuln.criticity <= 10) {
+                    stats["high"] += 1
+                }
+            }
+            stats["high"] = (stats["high"]*100)/stats["total-vulns"];
+            stats["medium"] = (stats["medium"]*100)/stats["total-vulns"];
+            stats["low"] = (stats["low"]*100)/stats["total-vulns"];
+            stats["info"] = (stats["info"]*100)/stats["total-vulns"];
+            stats["healthy"] = (stats["healthy"]*100)/stats["total-vulns"];
+            return stats
+        });
 }
 
 /**
