@@ -45,6 +45,24 @@ async function createAssetTile(target, scans) {
  */
 async function buildAttributes(target, scan_units) {
 
+    //fetch lastest scan statistics
+    var lastest_scan_unit = scan_units[0];
+    for(var scan of scan_units){
+        var d_last = Date.parse(lastest_scan_unit.datetime);
+        var d_current = Date.parse(scan.datetime);
+        if(d_current > d_last){
+            lastest_scan_unit = scan;
+        }
+    }
+    return getStats(lastest_scan_unit.file);
+    /*
+    return getStats(lastest_scan_unit.file).then((attributes) => {
+        return attributes;
+    });*/
+
+
+    // to resolve all the scans, not only last one:
+    /*
     // gather all stats
     const scans = new Array();
     for (var i in scan_units) {
@@ -57,16 +75,7 @@ async function buildAttributes(target, scan_units) {
         console.log(attrib);
         //TODO: compute statistics about this
         return attrib[0];
-
-        var attributes = new Array();
-        attributes["url"] = target;
-        attributes["high"] = "3";
-        attributes["medium"] = "5";
-        attributes["low"] = "8";
-        attributes["info"] = "12";
-        attributes["healthy"] = "7";
-        return attributes;
-    });
+    });*/
 }
 
 async function getStats(file) {
