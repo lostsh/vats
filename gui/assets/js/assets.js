@@ -131,7 +131,7 @@ class asset extends HTMLElement {
                     <div class="card bg-light border-0 mb-3">
                         <div class="row g-0">
                             <div class="col-md-5">
-                                <a class="stretched-link" href="`+ this.getAttribute('url') + `"></a>
+                                <a class="stretched-link" href="dashboard.html?asset=`+ this.getAttribute('url') + `"></a>
                                 <div class="card-body">
                                     <h5 class="card-title">`+ this.getAttribute('url') + `</h5>
                                     <p class="card-text">Active vulnerabilities overview</p>
