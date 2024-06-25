@@ -26,26 +26,42 @@ function main(index_file) {
             document.getElementById('target-tab').innerText = target;
 
             // build table
-            addScanColumn();
+            buildTable(scans);
         }else{
             console.log("Target not found exception!");
         }
     });
 }
 
-function addScanColumn(){
-
+/**
+ * For each scan unit, create a new column.
+ * (eventually new row when needed)
+ * @param {Array} scan_units list of scans files on the current target
+ */
+function buildTable(scan_units){
     // for each scan unit create a new row
     fetch("assets/js/fraise.json").then(data => data.json()).then(json => createColumn(json));
 }
 
+/**
+ * Create new Column for given the given scan.
+ * (eventially create new row if needed)
+ * @param {Object} scan_data content of a scan result
+ */
 function createColumn(scan_data){
     console.log(scan_data);
     document.querySelector('thead tr')
     .appendChild(theadRowElement(scan_data.vulnerabilities.length, scan_data.datetime));
-    addRowsAndColumns(scan_data.vulnerabilities);
+    // create new row or add vulns to existing ones
+    fillTableOrAddRow(scan_data.vulnerabilities);
 }
 
+/**
+ * Create a table head node element.
+ * @param {Int} total_vuln number of vuln in the scan
+ * @param {String} datetime datetime of scan 
+ * @returns 
+ */
 function theadRowElement(total_vuln, datetime){
     var thead = document.createElement("th");
     thead.setAttribute("scope", "col");
@@ -54,7 +70,13 @@ function theadRowElement(total_vuln, datetime){
     return thead;
 }
 
-function addRowsAndColumns(vulns){
+/**
+ * Add criticity to current column for the right component.
+ * If the component is not in the table, create a new row, 
+ * and fill the row.
+ * @param {Array} vulns List of the vuln in the current scan. 
+ */
+function fillTableOrAddRow(vulns){
     for(var vuln of vulns){
         //create new cell for this vuln
         var cell = document.createElement('td');
