@@ -39,8 +39,12 @@ function main(index_file) {
  * @param {Array} scan_units list of scans files on the current target
  */
 function buildTable(scan_units){
-    // for each scan unit create a new row
-    fetch("assets/js/fraise.json").then(data => data.json()).then(json => createColumn(json));
+    console.log("There is actually", scan_units.length, "scans\n\nScans: ", scan_units)
+    // for each scan unit create a new column
+    for(var unit of scan_units){
+        console.log("-> New Column for: ", unit)
+        fetch(unit.file).then(data => data.json()).then(json => createColumn(json));
+    }
 }
 
 /**
@@ -49,7 +53,7 @@ function buildTable(scan_units){
  * @param {Object} scan_data content of a scan result
  */
 function createColumn(scan_data){
-    console.log(scan_data);
+    console.log("\t=> Now creating column", scan_data);
     document.querySelector('thead tr')
     .appendChild(theadRowElement(scan_data.vulnerabilities.length, scan_data.datetime));
     // create new row or add vulns to existing ones
@@ -84,12 +88,24 @@ function fillTableOrAddRow(vulns){
         cell.setAttribute("title", vuln.comments);
 
         // add vuln to table
+        var total_column = document.querySelectorAll('thead th').length-1;
         var rows_titles = Array.from(document.querySelectorAll('tbody tr th'));
         var row_index = rows_titles.findIndex(e => e.textContent == vuln.component);
         if(row_index > -1){
-            // add current vuln to the row
             var rows = Array.from(document.querySelectorAll('tbody tr'));
-            rows[row_index].appendChild(cell);
+            // when vuln already in tab, just keep the highest criticity
+            var total_entry_current_row = rows[row_index].childNodes.length-1;
+            if(total_entry_current_row >= total_column){
+                var current_vuln_cell = rows[row_index].childNodes[total_entry_current_row];
+                var current_criticity = parseInt(current_vuln_cell.textContent);
+                // update current value in cell if criticity inferior to current
+                if(current_criticity < vuln.criticity){
+                    current_vuln_cell.innerText = vuln.criticity;
+                }
+            }else{
+                // add current vuln to the row
+                rows[row_index].appendChild(cell);
+            }
         }else{
             // create new row
             var tbody = document.querySelector('tbody');
@@ -101,8 +117,8 @@ function fillTableOrAddRow(vulns){
             row_title.innerText = vuln.component;
             row.appendChild(row_title);
             // fill the empty column of this component
-            var total_column = document.querySelectorAll('thead th').length-2;
-            for(var i=0; i<total_column; i++){
+            
+            for(var i=0; i<total_column-1; i++){
                 var blank_cell = document.createElement('td');
                 blank_cell.textContent = "-1";
                 row.appendChild(blank_cell);

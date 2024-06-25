@@ -94,7 +94,7 @@
         },
         {
             "component": "Fraise",
-            "criticity": 1.1,
+            "criticity": 7.5,
             "version": "0.2",
             "comments": "c"
         }
