@@ -1,6 +1,6 @@
 {
-    "target": "lostsh.github.io",
-    "datetime": "2024-06-10-09-45-20",
+    "target": "domain.tld",
+    "datetime": "2001-09-14T17:49:15.271705894+02:00",
     "vulnerabilities":
     [
         {
@@ -22,16 +22,16 @@
             "comments": "disclosed components versions"
         },
         {
-            "component":"SQLI",
-            "criticity":8,
-            "version":"",
-            "comments": "sql injection"
+            "component":    "JQuerry",
+            "criticity":    10,
+            "version":      "1.42",
+            "comments":     "vulnerable JQuerry version"
         },
         {
-            "component":"JQuerry",
-            "criticity":10,
-            "version":"1.42",
-            "comments": "vulnerable JQuerry version"
+            "component": "Server",
+            "criticity": 7,
+            "version": "1.42",
+            "comments": "Disclosed server engine & version"
         }
     ]
 }

@@ -1,0 +1,31 @@
+{
+    "target": "google.com",
+    "datetime": "2022-01-08T11:21:15.271705894+02:00",
+    "vulnerabilities":
+    [
+        {
+            "component":    "Saucisson",
+            "criticity":    0,
+            "version":      "",
+            "comments":     "L'apéro"
+        },
+        {
+            "component":    "Chipster",
+            "criticity":    1,
+            "version":      "",
+            "comments":      "Toujours fini trop tôt !"
+        },
+        {
+            "component":    "Carottes",
+            "criticity":    2,
+            "version":      "",
+            "comments":      "Pour ceux qui veulent des choses moins grasses."
+        },
+        {
+            "component":    "Paté",
+            "criticity":    3,
+            "version":      "",
+            "comments":     "Hop en toast la, quel délice !"
+        }
+    ]
+}
