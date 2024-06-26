@@ -44,7 +44,6 @@ async function createAssetTile(target, scans) {
  * @returns array of attributes to build a asset tile
  */
 async function buildAttributes(target, scan_units) {
-
     //fetch lastest scan statistics
     var lastest_scan_unit = scan_units[0];
     for(var scan of scan_units){
@@ -55,27 +54,6 @@ async function buildAttributes(target, scan_units) {
         }
     }
     return getStats(lastest_scan_unit.file);
-    /*
-    return getStats(lastest_scan_unit.file).then((attributes) => {
-        return attributes;
-    });*/
-
-
-    // to resolve all the scans, not only last one:
-    /*
-    // gather all stats
-    const scans = new Array();
-    for (var i in scan_units) {
-        console.log("Fetching infos from : ", scan_units[i]);
-        scans[i] = getStats(scan_units[i].file);
-    }
-
-    return Promise.all(scans).then((attrib) => {
-        console.log("Got all the stats damn !")
-        console.log(attrib);
-        //TODO: compute statistics about this
-        return attrib[0];
-    });*/
 }
 
 async function getStats(file) {
@@ -94,7 +72,6 @@ async function getStats(file) {
             stats["healthy"] = 0;
             stats["total-vulns"] = json.vulnerabilities.length;
             for (var vuln of json.vulnerabilities) {
-                console.log(vuln.criticity);
                 if (vuln.criticity <= 2) {
                     stats["healthy"] += 1
                 } else if (vuln.criticity <= 4) {

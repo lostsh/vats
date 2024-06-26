@@ -8,10 +8,8 @@
 */
 
 function main(index_file) {
-    console.log("Start showing !")
     var params = new URLSearchParams(document.location.search);
     var target = params.get("asset");
-    console.log("Target is: ", target);
 
     fetch(index_file)
         .then(data => {
@@ -21,7 +19,6 @@ function main(index_file) {
             // get scans from the current selected target
             var scans = json.assets[target];
             if (scans) {
-                console.log("On this target", target, ", there is those scans: ", scans);
                 //TODO : not display input form user ! use only input from json files (trusted)
                 document.getElementById('target-tab').innerText = target;
 
@@ -39,10 +36,8 @@ function main(index_file) {
  * @param {Array} scan_units list of scans files on the current target
  */
 function buildTable(scan_units) {
-    console.log("There is actually", scan_units.length, "scans\n\nScans: ", scan_units)
     // for each scan unit create a new column
     for (var unit of scan_units) {
-        console.log("-> New Column for: ", unit)
         fetch(unit.file).then(data => data.json()).then(json => createColumn(json));
     }
 }
@@ -53,7 +48,6 @@ function buildTable(scan_units) {
  * @param {Object} scan_data content of a scan result
  */
 function createColumn(scan_data) {
-    console.log("\t=> Now creating column", scan_data);
     document.querySelector('thead tr')
         .appendChild(theadRowElement(scan_data.vulnerabilities.length, scan_data.datetime));
     // create new row or add vulns to existing ones
