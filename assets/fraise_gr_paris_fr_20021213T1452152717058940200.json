@@ -4,26 +4,26 @@
     "vulnerabilities": [
         {
             "component": "JQuery",
-            "criticity": 8.1,
+            "criticity": 8.7,
             "version": "0.23",
             "comments": "c"
         },
         {
             "component": "React",
-            "criticity": 4.3,
+            "criticity": 5.3,
             "version": "0.2",
             "comments": "c"
         },
         {
             "component": "Apache",
-            "criticity": 9.8,
+            "criticity": 6.8,
             "version": "0.2",
             "comments": "c"
         },
         {
             "component": "Fraise",
             "criticity": 1.1,
-            "version": "0.2",
+            "version": "2.2",
             "comments": "c"
         }
     ]

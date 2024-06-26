@@ -38,6 +38,36 @@
             "criticity":    7,
             "version":      "1.42",
             "comments":     "Disclosed server engine & version"
+        },
+        {
+            "component":    "IDOR",
+            "criticity":    9,
+            "version":      "",
+            "comments":     "ID Open Redirect"
+        },
+        {
+            "component":    "CORS",
+            "criticity":    2,
+            "version":      "",
+            "comments":     "Cross Origin Ressource Sharing"
+        },
+        {
+            "component":    "XSS",
+            "criticity":    9,
+            "version":      "",
+            "comments":     "Champ de recherche vulnérable aux XSS"
+        },
+        {
+            "component":    "Mot de passe oublié",
+            "criticity":    10,
+            "version":      "1.42",
+            "comments":     "Extraction d'information sur les utilisateurs inscrits"
+        },
+        {
+            "component":    "Apache",
+            "criticity":    5,
+            "version":      "1.42",
+            "comments":     "Version de Apache vulnérable"
         }
     ]
 }

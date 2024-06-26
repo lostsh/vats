@@ -32,6 +32,18 @@
             "criticity":    2,
             "version":      "1.42",
             "comments":     "Disclosed confidential path."
+        },
+        {
+            "component":    "wpcron",
+            "criticity":    5,
+            "version":      "",
+            "comments":     "Fichier wordpress vulnérable."
+        },
+        {
+            "component":    "LFI",
+            "criticity":    1,
+            "version":      "1.42",
+            "comments":     "Local File Inclusion"
         }
     ]
 }

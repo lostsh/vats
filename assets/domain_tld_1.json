@@ -32,6 +32,24 @@
             "criticity":10,
             "version":"1.42",
             "comments": "vulnerable JQuerry version"
+        },
+        {
+            "component":"Security Headers",
+            "criticity":6,
+            "version":"",
+            "comments": "Header de sécurité manquants"
+        },
+        {
+            "component":"TLSv1.0",
+            "criticity":8,
+            "version":"",
+            "comments": "Version de TLS Obsolète"
+        },
+        {
+            "component":"Open Redirect",
+            "criticity":10,
+            "version":"1.42",
+            "comments": "URL de redirection non controlée."
         }
     ]
 }
