@@ -1,0 +1,55 @@
+{
+    "target": "google.com",
+    "datetime": "2023-01-14T11:21:15.271705894+02:00",
+    "vulnerabilities":
+    [
+        {
+            "component":    "Saucisson",
+            "criticity":    6,
+            "version":      "",
+            "comments":     "L'apéro élevé !"
+        },
+        {
+            "component":    "Saucisson",
+            "criticity":    5,
+            "version":      "",
+            "comments":     "L'apéro"
+        },
+        {
+            "component":    "Chipster",
+            "criticity":    7,
+            "version":      "",
+            "comments":      "Toujours fini trop tôt !"
+        },
+        {
+            "component":    "Hoummous",
+            "criticity":    10,
+            "version":      "",
+            "comments":     "Avocat frais, excellant."
+        },
+        {
+            "component":    "Carottes",
+            "criticity":    8,
+            "version":      "",
+            "comments":      "Pour ceux qui veulent des choses moins grasses."
+        },
+        {
+            "component":    "Paté",
+            "criticity":    9,
+            "version":      "",
+            "comments":     "Hop en toast la, quel délice !"
+        },
+        {
+            "component":    "Carottes",
+            "criticity":    1,
+            "version":      "",
+            "comments":      "Pour ceux qui veulent des choses moins grasses."
+        },
+        {
+            "component":    "Paté",
+            "criticity":    4,
+            "version":      "",
+            "comments":     "Hop en toast la, quel délice !"
+        }
+    ]
+}
