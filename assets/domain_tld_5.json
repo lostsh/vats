@@ -1,0 +1,37 @@
+{
+    "target": "domain.tld",
+    "datetime": "2010-11-25T17:49:15.271705894+02:00",
+    "vulnerabilities":
+    [
+        {
+            "component":    "ports",
+            "criticity":    3,
+            "version":      "",
+            "comments":     "Open ports represent attack surface"
+        },
+        {
+            "component":    "Cryptography",
+            "criticity":    4,
+            "version":      "",
+            "comments":     "cryptography problem"
+        },
+        {
+            "component":    "Info Disclosure",
+            "criticity":    6,
+            "version":      "",
+            "comments":     "disclosed components versions"
+        },
+        {
+            "component":    "SQLI",
+            "criticity":    8,
+            "version":      "",
+            "comments":     "sql injection"
+        },
+        {
+            "component":    "robot.txt",
+            "criticity":    2,
+            "version":      "1.42",
+            "comments":     "Disclosed confidential path."
+        }
+    ]
+}
